@@ -5,6 +5,32 @@ class Homepage extends StatelessWidget{
   @override
 
   Widget build(BuildContext context){
+    List <Map> imageList=[
+      {
+        "image":"assets/images/double burger1.png",
+        "name":"Double Burger",
+        "ingredients":"Double Beef",
+        "price":"&7.50"
+      },
+      {
+        "image":"assets/images/burger.png",
+        "name":"Beef Burger",
+        "ingredients":"Cheesy Mozarella",
+        "price":"&7.00"
+      },
+      {
+        "image":"assets/images/chicken burger.png",
+        "name":"Chicken Burger",
+        "ingredients":"American Cheese",
+        "price":"&6.50"
+      },
+      {
+        "image":"assets/images/pepperoni pizza.png",
+        "name":"Margarita Pizza",
+        "ingredients":"Mozarella Chesse",
+        "price":"&8.20"
+      },
+    ];
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -16,11 +42,12 @@ class Homepage extends StatelessWidget{
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(Icons.more_horiz),
-                SizedBox(
+                Icon(Icons.menu),
+                Container(
                   height: 40,
                   width: 40,
-                  child: CircleAvatar(backgroundImage: AssetImage("assets/images/cheese-48401.png"),))
+                  decoration: BoxDecoration(shape: BoxShape.circle,image: DecorationImage(image: AssetImage("assets/images/face1.jpg"),fit: BoxFit.cover)),
+                ),
               ],
             ),
 
@@ -50,16 +77,61 @@ class Homepage extends StatelessWidget{
 
             SizedBox(height: 20,),
 
-            Expanded(
+            Container(
+              height: 100,
+              width: 400,
               child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
+              itemCount: 5,
               itemBuilder: (context,index){
                 return Container(
                   height: 20,
-                  width: 20,
-                  color: Colors.amber,
+                  width: 100,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.amber),
                 );
               }),
-            )
+            ),
+
+            Text("Most Popular",style: TextStyle(fontSize: 30,color: Colors.black,fontWeight: FontWeight.bold),),
+
+            SizedBox(height: 20,),
+            
+            Expanded(child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 25,
+              mainAxisSpacing: 25,
+              childAspectRatio: 0.6
+              ),
+              itemCount: 4,
+              itemBuilder: (context,index){
+                return Container(
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: const Color.fromARGB(255, 238, 238, 238)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 160,
+                          width: 150,
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),image: DecorationImage(image: AssetImage(imageList[index]["image"]),fit: BoxFit.cover)),
+                        ),
+                        Text(imageList[index]["name"],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Text(imageList[index]["ingredients"],style: TextStyle(fontSize: 14,color: Colors.grey),),
+
+                        SizedBox(height: 15,),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(imageList[index]["price"],style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 255, 33, 17),),),
+                            Text("+",style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 255, 33, 17),),),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }))
           ],
         ),
       ),
