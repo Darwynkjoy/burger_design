@@ -10,25 +10,29 @@ class Homepage extends StatelessWidget{
         "image":"assets/images/double burger1.png",
         "name":"Double Burger",
         "ingredients":"Double Beef",
-        "price":"&7.50"
+        "price":"&7.50",
+        "box":"burger"
       },
       {
         "image":"assets/images/burger.png",
         "name":"Beef Burger",
         "ingredients":"Cheesy Mozarella",
-        "price":"&7.00"
+        "price":"&7.00",
+        "box":"Pizza"
       },
       {
         "image":"assets/images/chicken burger.png",
         "name":"Chicken Burger",
         "ingredients":"American Cheese",
-        "price":"&6.50"
+        "price":"&6.50",
+        "box":"Soup"
       },
       {
         "image":"assets/images/pepperoni pizza.png",
         "name":"Margarita Pizza",
         "ingredients":"Mozarella Chesse",
-        "price":"&8.20"
+        "price":"&8.20",
+        "box":"Sandwich"
       },
     ];
     return Scaffold(
@@ -79,17 +83,20 @@ class Homepage extends StatelessWidget{
 
             Container(
               height: 100,
-              width: 400,
-              child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
-              itemCount: 5,
+              width: 450,
+              color: Colors.black,
+              child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+              itemCount: 4,
               itemBuilder: (context,index){
                 return Container(
-                  height: 20,
-                  width: 100,
+                  height: 10,
+                  width: 10,
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.amber),
+                  child: Center(child: Text(imageList[index]["box"],style: TextStyle(fontSize: 20,color: Colors.black),)),
                 );
               }),
             ),
+            SizedBox(height: 20,),
 
             Text("Most Popular",style: TextStyle(fontSize: 30,color: Colors.black,fontWeight: FontWeight.bold),),
 
