@@ -71,22 +71,22 @@ class Productpage extends StatelessWidget{
                 Container(
                   height: 80,
                   width: 80 ,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.blueGrey,image: DecorationImage(image: AssetImage(""))),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: const Color.fromARGB(255, 212, 188, 255),image: DecorationImage(image: AssetImage("assets/images/cheese-48401.png"),scale: 15)),
                 ),
                   Container(
                   height: 80,
                   width: 80 ,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.blueGrey,image: DecorationImage(image: AssetImage(""))),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: const Color.fromARGB(255, 161, 224, 255),image: DecorationImage(image: AssetImage("assets/images/beef.png"),scale: 30)),
                 ),
                 Container(
                   height: 80,
                   width: 80 ,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.blueGrey,image: DecorationImage(image: AssetImage(""))),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: const Color.fromARGB(255, 255, 234, 140),image: DecorationImage(image: AssetImage("assets/images/onion.png"),scale: 16)),
                 ),
                   Container(
                   height: 80,
                   width: 80 ,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.blueGrey,image: DecorationImage(image: AssetImage(""))),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: const Color.fromARGB(255, 255, 155, 155),image: DecorationImage(image: AssetImage("assets/images/tomato.png"),scale: 50)),
                 ),
                 SizedBox(height: 20,),
               ],
@@ -106,7 +106,7 @@ class Productpage extends StatelessWidget{
               ],
             ),
 
-            SizedBox(height: 20,),
+            //SizedBox(height: 20,),
             
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
