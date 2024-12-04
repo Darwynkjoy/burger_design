@@ -81,24 +81,26 @@ class Homepage extends StatelessWidget{
 
             SizedBox(height: 20,),
 
-            Container(
-              height: 100,
-              width: 450,
-              color: Colors.black,
-              child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-              itemCount: 4,
-              itemBuilder: (context,index){
+            SizedBox(
+              height: 40,
+              child: ListView.separated(scrollDirection: Axis.horizontal,itemBuilder: (context,index){
                 return Container(
-                  height: 10,
-                  width: 10,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.amber),
-                  child: Center(child: Text(imageList[index]["box"],style: TextStyle(fontSize: 20,color: Colors.black),)),
+                  height: 30,
+                      width: 100,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: const Color.fromARGB(255, 223, 223, 223),),
+                      child: Center(child: Text(imageList[index]["box"],style: TextStyle(fontSize: 20,color: Colors.black),)),
                 );
-              }),
+              },
+              
+              separatorBuilder: (context,index){
+                return SizedBox(width: 20,);
+              },
+              itemCount: 4),
             ),
+
             SizedBox(height: 20,),
 
-            Text("Most Popular",style: TextStyle(fontSize: 30,color: Colors.black,fontWeight: FontWeight.bold),),
+            Text("Most Popular",style: TextStyle(fontSize: 26,color: Colors.black,fontWeight: FontWeight.bold),),
 
             SizedBox(height: 20,),
             
@@ -142,6 +144,13 @@ class Homepage extends StatelessWidget{
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color.fromARGB(255, 255, 33, 17),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
+        items: BottomNavigationBarItem(icon: Icons.home)),
+        ),
     );
   }
 }
