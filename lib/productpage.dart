@@ -1,7 +1,11 @@
+import 'package:burger/homepage.dart';
 import 'package:flutter/material.dart';
 
 class Productpage extends StatelessWidget{
-  const Productpage({super.key});
+  String? image;
+  String? price;
+  String? name;
+  Productpage({super.key,required this.image,required this.name,required this.price});
   @override
 
   Widget build(BuildContext context){
@@ -9,7 +13,9 @@ class Productpage extends StatelessWidget{
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(onTap: (){
+          Navigator.pop(context,MaterialPageRoute(builder: (context)=>Homepage()));
+        },child: Icon(Icons.arrow_back_ios)),
         title: Text("Details",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),
         centerTitle: true,
         actions: [
@@ -27,7 +33,7 @@ class Productpage extends StatelessWidget{
               child: Container(
                 height: 350,
                 width: 350,
-                decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/burger.png"),fit: BoxFit.cover)),
+                decoration: BoxDecoration(image: DecorationImage(image: AssetImage(image!),fit: BoxFit.cover)),
               ),
             ),
             Container(
@@ -46,8 +52,8 @@ class Productpage extends StatelessWidget{
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Beef Burger",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
-                Text("&7.50",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color:const Color.fromARGB(255, 255, 33, 17)),), 
+                Text(name!,style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                Text(price!,style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color:const Color.fromARGB(255, 255, 33, 17)),), 
               ],
             ),
             Row(

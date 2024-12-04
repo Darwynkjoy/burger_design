@@ -1,3 +1,4 @@
+import 'package:burger/homepage.dart';
 import 'package:flutter/material.dart';
 
 class Welcomepage extends StatelessWidget{
@@ -40,7 +41,9 @@ class Welcomepage extends StatelessWidget{
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 backgroundColor: const Color.fromARGB(255, 255, 33, 17)
               ),
-              onPressed: (){}, child: Text("sign in",style: TextStyle(fontSize: 18,color: Colors.white),)),
+              onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>Homepage()));
+              }, child: Text("sign in",style: TextStyle(fontSize: 18,color: Colors.white),)),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

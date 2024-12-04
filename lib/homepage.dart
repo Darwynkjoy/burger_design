@@ -1,3 +1,4 @@
+import 'package:burger/productpage.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatelessWidget{
@@ -87,7 +88,7 @@ class Homepage extends StatelessWidget{
                 return Container(
                   height: 30,
                       width: 100,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: const Color.fromARGB(255, 223, 223, 223),),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: const Color.fromARGB(255, 236, 236, 236),),
                       child: Center(child: Text(imageList[index]["box"],style: TextStyle(fontSize: 20,color: Colors.black),)),
                 );
               },
@@ -119,10 +120,19 @@ class Homepage extends StatelessWidget{
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: 160,
-                          width: 150,
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),image: DecorationImage(image: AssetImage(imageList[index]["image"]),fit: BoxFit.cover)),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Productpage(
+                              image: imageList[index]["image"],
+                              name: imageList[index]["name"],
+                              price: imageList[index]["price"],
+                            )),);
+                          },
+                          child: Container(
+                            height: 160,
+                            width: 150,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),image: DecorationImage(image: AssetImage(imageList[index]["image"]),fit: BoxFit.cover)),
+                          ),
                         ),
                         Text(imageList[index]["name"],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
                         Text(imageList[index]["ingredients"],style: TextStyle(fontSize: 14,color: Colors.grey),),
@@ -148,9 +158,12 @@ class Homepage extends StatelessWidget{
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color.fromARGB(255, 255, 33, 17),
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
-        items: BottomNavigationBarItem(icon: Icons.home)),
-        ),
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home,size: 30,),label: "",),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite,size: 30,),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.notifications,size: 30,),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,size: 30,),label: ""),
+        ]),
     );
   }
 }

@@ -1,5 +1,3 @@
-import 'package:burger/homepage.dart';
-import 'package:burger/productpage.dart';
 import 'package:burger/welcomepage.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: Welcomepage(),
     );
   }
 }
