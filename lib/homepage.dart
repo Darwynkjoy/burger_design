@@ -30,7 +30,7 @@ class Homepage extends StatelessWidget{
       },
       {
         "image":"assets/images/pepperoni pizza.png",
-        "name":"Margarita Pizza",
+        "name":"Pepperoni Pizza",
         "ingredients":"Mozarella Chesse",
         "price":"&8.20",
         "box":"Sandwich"
